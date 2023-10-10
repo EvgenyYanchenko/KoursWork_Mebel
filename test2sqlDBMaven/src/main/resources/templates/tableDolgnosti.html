@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Thymeleaf</title>
+</head>
+<body>
+<h1>Output Dolgnosti table</h1>
+<div th:each="el: ${dolgnosti}" class="alert alert-info mt-2">
+<h3 th:text="${el.nazvanie_Dolgnosti}"/>
+    <p th:text="${el.oklad}"/>
+</div>>
+
+<h1 th:text="'Hello Thymeleaf!'">Hello sample</h1>
+</body>
+</html>
