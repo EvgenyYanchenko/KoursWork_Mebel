@@ -5,11 +5,20 @@
     <title>Hello Thymeleaf</title>
 </head>
 <body>
-<h1>Output Dolgnosti table</h1>
-<div th:each="el: ${dolgnosti}" class="alert alert-info mt-2">
-<h3 th:text="${el.nazvanie_Dolgnosti}"/>
-    <p th:text="${el.oklad}"/>
-</div>>
+<h1>Все должности в компании</h1>
+<tbody>
+<tr th:each="element : ${dolgnosti}">
+    <td th:text="${element.nazvanie_Dolgnosti}"><br></td>
+    <td th:text="${element.oklad}"><br></td>
+    <td th:text="${element.kategoriya}"><br></td>
+</tr>
+</tbody>
+<h2>Добавление новой должности</h2>>
+
+
+
+
+
 
 <h1 th:text="'Hello Thymeleaf!'">Hello sample</h1>
 </body>
