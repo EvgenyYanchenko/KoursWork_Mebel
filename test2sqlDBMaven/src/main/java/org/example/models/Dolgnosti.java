@@ -5,6 +5,14 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Dolgnosti {
+    public Dolgnosti() {
+    }
+
+    public Dolgnosti(String nazvanie_Dolgnosti, String kategoriya, int oklad) {
+        this.nazvanie_Dolgnosti = nazvanie_Dolgnosti;
+        this.kategoriya = kategoriya;
+        this.oklad = oklad;
+    }
 
     @Id
     private String nazvanie_Dolgnosti;

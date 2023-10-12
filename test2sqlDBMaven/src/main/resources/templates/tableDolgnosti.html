@@ -13,10 +13,18 @@
     <td th:text="${element.kategoriya}"><br></td>
 </tr>
 </tbody>
-<h2>Добавление новой должности</h2>>
 
+<div class="container mt-5 mb-5">
+    <h1>Добавление новой должности</h1>>
+    <form action="/tableDolgnosti" method="post">
+        <input type="text" name="nazvanie_Dolgnosti" placeholder="Название новой должности" class="form-control"><br>
+        <input type="text" name="kategoriya" placeholder="Категория новой должности" class="form-control"><br>
+        <input type="text" name="oklad" placeholder="Оклад новой должности" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить новую должность</button>
+        >
+    </form>
 
-
+</div>
 
 
 
