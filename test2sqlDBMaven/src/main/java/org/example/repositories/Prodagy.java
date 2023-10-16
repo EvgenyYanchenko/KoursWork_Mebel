@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Proizvodstvo {
+public class Prodagy {
 
-    @GetMapping ("/proizvodstvo/Proizvodstvo")
-    public String showProizvodstvoPage (Model model)
+    @GetMapping("/Prodagy/Torgovlja")
+    public  String showTorgovljaPage(Model model)
     {
-        return "/proizvodstvo/Proizvodstvo";
+        return "/Prodagy/Torgovlja";
     }
 }
