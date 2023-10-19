@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Готовые товары на производстве.</title>
+  <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Готовые товары на производстве.</h2>>
+<table>
+  <thead>
+  <tr>
+    <th>Колонка 1</th>
+    <th>Колонка 2</th>
+    <th>Колонка 3</th>
+    <th>Колонка 4</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Здесь можно использовать Thymeleaf для динамического заполнения таблицы -->
+  <tr th:each="item : ${items}">
+    <td th:text="${item.column1}"></td>
+    <td th:text="${item.column2}"></td>
+    <td th:text="${item.column3}"></td>
+    <td th:text="${item.column4}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<button>Кнопка 1</button>
+<button>Кнопка 2</button>
+
+</body>
+
+</html>

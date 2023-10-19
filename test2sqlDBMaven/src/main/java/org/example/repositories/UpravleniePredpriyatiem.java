@@ -20,6 +20,17 @@ public class UpravleniePredpriyatiem {
         return "/UpravlenPre/UpravlenieSotrudniki/Sotrudniki";
     }
 
+
+    @GetMapping("/UpravlenPre/UpravlenieProizvodstvom/UpravlenTov&komplekt")
+
+    public String showUpravlenIKomplekt(Model model)
+    {
+        return "/UpravlenPre/UpravlenieProizvodstvom/UpravlenTov&komplekt";
+    }
+
+
+
+
 //    @GetMapping("/Prodagy/Torgovlja")
 //
 //    public String showTorgovljaPage(Model model)
