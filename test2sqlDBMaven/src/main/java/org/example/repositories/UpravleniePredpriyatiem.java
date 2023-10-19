@@ -13,10 +13,17 @@ public class UpravleniePredpriyatiem {
         return "/UpravlenPre/UpravleniePredpriyatiem";
     }
 
-    @GetMapping("/UpravlenPre/Sotrudniki/Sotrudniki")
+    @GetMapping("/UpravlenPre/UpravlenieSotrudniki/Sotrudniki")
 
         public String showSotrudnikiPage(Model model)
     {
-        return "/UpravlenPre/Sotrudniki/Sotrudniki";
+        return "/UpravlenPre/UpravlenieSotrudniki/Sotrudniki";
     }
+
+//    @GetMapping("/Prodagy/Torgovlja")
+//
+//    public String showTorgovljaPage(Model model)
+//    {
+//        return "/Prodagy/Torgovlja";
+//    }
 }
