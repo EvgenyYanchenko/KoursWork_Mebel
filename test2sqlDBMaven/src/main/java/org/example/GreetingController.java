@@ -33,7 +33,7 @@ public class GreetingController {
         return "tableDolgnosti";
     }
 
-    @PostMapping("/tableDolgnosti") // получаем данные из html формы, кидаем их в объект  Post  и сохраняем в БД
+    @PostMapping("/tableDolgnosti") // получаем данные из html формы, кидаем их в объект  Post?  и сохраняем в БД
     public String addToDB(@RequestParam String nazvanie_Dolgnosti,
                           @RequestParam String kategoriya,
                           @RequestParam int oklad,

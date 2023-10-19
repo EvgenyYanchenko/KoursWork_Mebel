@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class Prodagy {
+public class ProdagyController {
 
     @GetMapping("/Prodagy/Torgovlja")
     public  String showTorgovljaPage(Model model)
