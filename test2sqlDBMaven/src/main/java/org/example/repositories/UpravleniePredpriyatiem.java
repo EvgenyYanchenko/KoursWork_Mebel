@@ -21,11 +21,11 @@ public class UpravleniePredpriyatiem {
     }
 
 
-    @GetMapping("/UpravlenPre/UpravlenieProizvodstvom/UpravlenTov&komplekt")
+    @GetMapping("/UpravlenPre/UpravlenieProizvodstvom/SettSklady")
 
-    public String showUpravlenIKomplekt(Model model)
+    public String showSettSkladyPage(Model model)
     {
-        return "/UpravlenPre/UpravlenieProizvodstvom/UpravlenTov&komplekt";
+        return "/UpravlenPre/UpravlenieProizvodstvom/SettSklady";
     }
 
 

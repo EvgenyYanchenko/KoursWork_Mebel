@@ -7,34 +7,26 @@ import jakarta.persistence.Id;
 public class Sklady {
 
     @Id
-    private int idSklada;
+    private String nameSklada;
 
-    private String nazvanieSklada;
     private String adressSklada;
+    private String phoneSklada;
 
     public Sklady() {
     }
 
-    public Sklady(int idSklada, String nazvanieSklada, String adressSklada) {
-        this.idSklada = idSklada;
-        this.nazvanieSklada = nazvanieSklada;
+    public Sklady(String nameSklada, String adressSklada, String phoneSklada) {
+        this.nameSklada = nameSklada;
         this.adressSklada = adressSklada;
+        this.phoneSklada = phoneSklada;
     }
 
-    public int getIdSklada() {
-        return idSklada;
+    public String getNameSklada() {
+        return nameSklada;
     }
 
-    public void setIdSklada(int idSklada) {
-        this.idSklada = idSklada;
-    }
-
-    public String getNazvanieSklada() {
-        return nazvanieSklada;
-    }
-
-    public void setNazvanieSklada(String nazvanieSklada) {
-        this.nazvanieSklada = nazvanieSklada;
+    public void setNameSklada(String nameSklada) {
+        this.nameSklada = nameSklada;
     }
 
     public String getAdressSklada() {
@@ -43,5 +35,13 @@ public class Sklady {
 
     public void setAdressSklada(String adressSklada) {
         this.adressSklada = adressSklada;
+    }
+
+    public String getPhoneSklada() {
+        return phoneSklada;
+    }
+
+    public void setPhoneSklada(String phoneSklada) {
+        this.phoneSklada = phoneSklada;
     }
 }
