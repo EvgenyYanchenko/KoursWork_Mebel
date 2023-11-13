@@ -47,6 +47,7 @@
             background-color: #04AA6D;
             color: white;
         }
+
     </style>
     <header th:insert="blocks/header :: header"></header>
 </head>
@@ -59,29 +60,55 @@
         </div>
     </div>
 <!--    table of sklady-->
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var checkboxes = document.querySelectorAll('#sklady tbody input[type="checkbox"]');
+        var counter = document.querySelector('#selectCounter');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var selectedCount = document.querySelectorAll('#sklady tbody input[type="checkbox"]:checked').length;
+                counter.textContent = selectedCount;
+
+                var row = this.parentNode.parentNode;
+                row.classList.toggle('selected', this.checked);
+            });
+        });
+    });
+</script>
+
+
     <div class="row justify-content-center mt-4">
         <div class="col-10">
-            <table class="table" id="sklady">
-                <thead>
-                <tr>
-                    <th>Название склада</th>
-                    <th>Адрес склада</th>
-                    <th>Телефон</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="sklad : ${skladyHTML}">
-                    <td th:text="${sklad.nameSklada}"></td>
-                    <td th:text="${sklad.adressSklada}"></td>
-                    <td th:text="${sklad.phoneSklada}"></td>
-                </tr>
-                </tbody>
-            </table>
+            <div style="height: 400px; overflow-y: auto;">
+                <table class="table" id="sklady">
+                    <thead>
+                    <tr>
+                        <th>Название склада</th>
+                        <th>Адрес склада</th>
+                        <th>Телефон</th>
+                        <th id="selectColumn">Выбрано (<span id="selectCounter">0</span>)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="sklad : ${sklady}">
+                        <td th:text="${sklad.nameSklada}"></td>
+                        <td th:text="${sklad.adressSklada}"></td>
+                        <td th:text="${sklad.phoneSklada}"></td>
+                        <td><input type="checkbox" name="selectRow"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
 
 <!--    addding new sklad area-->
+
+
+
     <div class="row justify-content-center mt-4">
         <div class="col-6">
             <div class="container">
@@ -100,9 +127,7 @@
                     <div class="col-12 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Добавить новый склад</button>
                     </div>
-                    <div class="col-12 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Добавить новый склад</button>
-                    </div>
+
                 </form>
             </div>
         </div>
