@@ -30,6 +30,8 @@
         #sklady td, #sklady th {
             border: 1px solid #ddd;
             padding: 8px;
+
+
         }
 
         #sklady tr:nth-child(even) {
@@ -46,6 +48,12 @@
             text-align: left;
             background-color: #04AA6D;
             color: white;
+
+
+        position: sticky;
+        top: 0;
+        z-index: 1;
+
         }
 
     </style>
@@ -61,10 +69,14 @@
     </div>
 <!--    table of sklady-->
 
-    <script>
+    <script th:inline="javascript">
     document.addEventListener('DOMContentLoaded', function() {
         var checkboxes = document.querySelectorAll('#sklady tbody input[type="checkbox"]');
         var counter = document.querySelector('#selectCounter');
+        var rows = document.querySelectorAll('#sklady tbody tr');
+        var nameSkladaField = document.querySelector('#nameSklada');
+        var adressSkladaField = document.querySelector('#adressSklada');
+        var phoneSkladaField = document.querySelector('#phoneSklada');
 
         checkboxes.forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
@@ -73,6 +85,18 @@
 
                 var row = this.parentNode.parentNode;
                 row.classList.toggle('selected', this.checked);
+            });
+        });
+
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var nameSklada = this.querySelector('td:nth-child(1)').textContent;
+                var adressSklada = this.querySelector('td:nth-child(2)').textContent;
+                var phoneSklada = this.querySelector('td:nth-child(3)').textContent;
+
+                nameSkladaField.value = nameSklada;
+                adressSkladaField.value = adressSklada;
+                phoneSkladaField.value = phoneSklada;
             });
         });
     });
