@@ -71,22 +71,10 @@
 
     <script th:inline="javascript">
     document.addEventListener('DOMContentLoaded', function() {
-        var checkboxes = document.querySelectorAll('#sklady tbody input[type="checkbox"]');
-        var counter = document.querySelector('#selectCounter');
         var rows = document.querySelectorAll('#sklady tbody tr');
         var nameSkladaField = document.querySelector('#nameSklada');
         var adressSkladaField = document.querySelector('#adressSklada');
         var phoneSkladaField = document.querySelector('#phoneSklada');
-
-        checkboxes.forEach(function(checkbox) {
-            checkbox.addEventListener('change', function() {
-                var selectedCount = document.querySelectorAll('#sklady tbody input[type="checkbox"]:checked').length;
-                counter.textContent = selectedCount;
-
-                var row = this.parentNode.parentNode;
-                row.classList.toggle('selected', this.checked);
-            });
-        });
 
         rows.forEach(function(row) {
             row.addEventListener('click', function() {
@@ -101,6 +89,13 @@
         });
     });
 </script>
+    <script>
+    function clearFields() {
+        document.getElementById('nameSklada').value = '';
+        document.getElementById('adressSklada').value = '';
+        document.getElementById('phoneSklada').value = '';
+    }
+</script>
 
 
     <div class="row justify-content-center mt-4">
@@ -112,7 +107,7 @@
                         <th>Название склада</th>
                         <th>Адрес склада</th>
                         <th>Телефон</th>
-                        <th id="selectColumn">Выбрано (<span id="selectCounter">0</span>)</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -120,7 +115,7 @@
                         <td th:text="${sklad.nameSklada}"></td>
                         <td th:text="${sklad.adressSklada}"></td>
                         <td th:text="${sklad.phoneSklada}"></td>
-                        <td><input type="checkbox" name="selectRow"></td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -150,12 +145,17 @@
 
                     <div class="col-12 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Добавить новый склад</button>
+                        <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить поля</button>
+                        <button type="button" class="btn btn-danger" id="deleteMarkedButton">Удалить отмеченный склад</button>
+                    </div>
                     </div>
 
                 </form>
             </div>
         </div>
     </div>
+
+
 </div>
 </body>
 
