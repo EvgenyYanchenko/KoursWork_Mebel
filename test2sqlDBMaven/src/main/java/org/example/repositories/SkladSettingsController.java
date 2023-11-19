@@ -14,14 +14,22 @@ public class SkladSettingsController {
     @Autowired
     private SkladRepository skladRepository;
     @PostMapping("/UpravlenPre/UpravlenieProizvodstvom/SettSklady")
-    public String addToDB(@RequestParam String nameSklada,
+    public String addToDB(@RequestParam ("action") String action,
+                          @RequestParam String nameSklada,
                           @RequestParam String adressSklada,
                           @RequestParam String phoneSklada,
                           Model model) {
-        Sklady newSklad = new Sklady(nameSklada, adressSklada, phoneSklada);
-        skladRepository.save(newSklad);
 
-
+        if("add".equals(action))
+        {
+            Sklady newSklad = new Sklady(nameSklada, adressSklada, phoneSklada);
+            skladRepository.save(newSklad);
+        }
+        else if ("remove".equals(action))
+        {
+            Sklady skladForDeleting = skladRepository.findById(nameSklada).orElseThrow();
+            skladRepository.delete(skladForDeleting);
+        }
         return "redirect:/UpravlenPre/UpravlenieProizvodstvom/SettSklady";
     }
 
