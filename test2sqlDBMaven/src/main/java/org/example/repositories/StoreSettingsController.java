@@ -1,7 +1,7 @@
 package org.example.repositories;
 
 
-import org.example.models.Sklady;
+
 import org.example.models.Stores;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,24 +14,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class StoreSettingsController {
     @Autowired
     private StoreSettingsRepository storeRepo;
-    @PostMapping("/UpravlenPre/UpravlenieProizvodstvom/StoreSettings")
+    @PostMapping("/UpravlenPre/StoreSettings")
     public String addToDB(@RequestParam ("action") String action,
-                          @RequestParam String nameSklada,
-                          @RequestParam String adressSklada,
-                          @RequestParam String phoneSklada,
+                          @RequestParam String storeName,
+                          @RequestParam String storeAdress,
+                          @RequestParam int storeSpace,
                           Model model) {
 
         if("add".equals(action))
         {
-            Stores newSklad = new Stores(nameSklada, adressSklada, phoneSklada);
-            storeRepo.save(newSklad);
+            Stores newstore = new Stores(storeName, storeAdress, storeSpace);
+            storeRepo.save(newstore);
         }
         else if ("remove".equals(action))
         {
-            Stores storeForDeleting = storeRepo.findById(nameSklada).orElseThrow();
+            Stores storeForDeleting = storeRepo.findById(storeName).orElseThrow();
             storeRepo.delete(storeForDeleting);
         }
-        return "redirect:/UpravlenPre/UpravlenieProizvodstvom/StoreSettings";
+        return "redirect:/UpravlenPre/StoreSettings";
     }
 
 

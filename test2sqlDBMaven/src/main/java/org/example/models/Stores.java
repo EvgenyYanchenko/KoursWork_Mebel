@@ -9,12 +9,12 @@ public class Stores {
     @Id
     private String storeName;
     private String storeAdress;
-    private String storeSpace;
+    private int storeSpace;
 
     public Stores() {
     }
 
-    public Stores(String storeName, String storeAdress, String storeSpace) {
+    public Stores(String storeName, String storeAdress, int storeSpace) {
         this.storeName = storeName;
         this.storeAdress = storeAdress;
         this.storeSpace = storeSpace;
@@ -36,11 +36,11 @@ public class Stores {
         this.storeAdress = storeAdress;
     }
 
-    public String getStoreSpace() {
+    public int getStoreSpace() {
         return storeSpace;
     }
 
-    public void setStoreSpace(String storeSpace) {
+    public void setStoreSpace(int storeSpace) {
         this.storeSpace = storeSpace;
     }
 }

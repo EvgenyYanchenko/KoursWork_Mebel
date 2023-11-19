@@ -14,6 +14,8 @@ public class UpravleniePredpriyatiem {
 
     @Autowired
     private SkladRepository skladRepository;
+
+    @Autowired
     private StoreSettingsRepository storesRepository;
 
     @GetMapping("/UpravlenPre/UpravleniePredpriyatiem")
@@ -52,8 +54,8 @@ public class UpravleniePredpriyatiem {
     @GetMapping("/UpravlenPre/StoreSettings")
     public String showSettStoresPage(Model model)
     {
-//        Iterable<Stores> someStore = storesRepository.findAll();
-//        model.addAttribute("stores", someStore);
+        Iterable<Stores> someStore = storesRepository.findAll();
+        model.addAttribute("stores", someStore);
         return "/UpravlenPre/StoreSettings";
     }
 
