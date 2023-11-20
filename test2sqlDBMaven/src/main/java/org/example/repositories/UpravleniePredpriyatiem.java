@@ -1,5 +1,6 @@
 package org.example.repositories;
 
+import org.example.models.Employee;
 import org.example.models.Sklady;
 import org.example.models.Stores;
 import org.example.repositories.SkladRepository;
@@ -17,6 +18,9 @@ public class UpravleniePredpriyatiem {
 
     @Autowired
     private StoreSettingsRepository storesRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepo;
 
     @GetMapping("/UpravlenPre/UpravleniePredpriyatiem")
     public String showUpravleniePage (Model model)
@@ -59,4 +63,13 @@ public class UpravleniePredpriyatiem {
         return "/UpravlenPre/StoreSettings";
     }
 
+
+    // Sotrudniki settings show page
+    @GetMapping("/UpravlenPre/SotrudnikiSettings")
+    public String showSotrudnikiSettingsPage(Model model)
+    {
+//        Iterable<Employee> element = employeeRepo.findAll();
+//        model.addAttribute("employee", element);
+        return "/UpravlenPre/SotrudnikiSettings";
+    }
 }
