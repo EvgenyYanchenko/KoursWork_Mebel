@@ -27,11 +27,11 @@ public class UpravleniePredpriyatiem {
 
 
 
-    @GetMapping("/UpravlenPre/UpravlenieSotrudniki/Sotrudniki")
+    @GetMapping("/UpravlenPre/SotrudnikiSettings")
 
         public String showSotrudnikiPage(Model model)
     {
-        return "/UpravlenPre/UpravlenieSotrudniki/Sotrudniki";
+        return "/UpravlenPre/SotrudnikiSettings";
     }
 
 
