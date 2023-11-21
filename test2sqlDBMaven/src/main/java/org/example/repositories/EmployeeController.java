@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EmployeeController {
-    @Autowired
-    private EmployeeRepository employeeRepo;
-
+//    @Autowired
+//    private EmployeeRepository employeeRepo;
+//
 //    @PostMapping("/UpravlenPre/SotrudnikiSettings")
 //    public String addToDB(@RequestParam ("action") String action,
 //                          @RequestParam String nameSklada,

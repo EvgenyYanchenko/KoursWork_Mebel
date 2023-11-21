@@ -29,18 +29,6 @@ public class UpravleniePredpriyatiem {
     }
 
 
-
-
-    @GetMapping("/UpravlenPre/SotrudnikiSettings")
-
-        public String showSotrudnikiPage(Model model)
-    {
-        return "/UpravlenPre/SotrudnikiSettings";
-    }
-
-
-
-
     // Settings Sklady
     @GetMapping("/UpravlenPre/UpravlenieProizvodstvom/SettSklady")
     public String showSettSkladyPage(Model model)
