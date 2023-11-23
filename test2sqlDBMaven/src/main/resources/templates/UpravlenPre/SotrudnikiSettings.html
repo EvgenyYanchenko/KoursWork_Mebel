@@ -66,11 +66,14 @@
 <body>
 
 <div class="container">
-    <h1>Пример страницы с вкладками</h1>
+    <h1>Сотрудники и должности в организации</h1>
 
     <ul class="nav nav-tabs" id="myTabs">
         <li class="nav-item">
-            <a class="nav-link active" id="employees-tab" data-bs-toggle="tab" href="#employees">Сотрудники</a>
+            <a class="nav-link active" id="employees-tab" data-bs-toggle="tab" href="#employees">Все сотрудники</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="employees-edit-tab" data-bs-toggle="tab" href="#employeesEdit">Добавление нового сотрудника</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="positions-tab" data-bs-toggle="tab" href="#positions">Должности</a>
@@ -79,7 +82,7 @@
 
     <div class="tab-content" id="myTabsContent">
         <div class="tab-pane fade show active" id="employees">
-            <h3>Содержимое вкладки "Сотрудники"</h3>
+            <h3>Добавление нового сотрудника или редактирование</h3>
             <form id="employee-form" class="row g-4">
                 <div class="mb-3 col-md-4">
                     <label for="last-name-input" class="form-label">Фамилия</label>
@@ -118,8 +121,8 @@
 
                 <!--          Buttons-->
                 <div class="mb-3 col-14">
-                    <button type="submit" class="btn btn-primary">Добавить</button>
-                    <button type="button" class="btn btn-secondary" id="clear-button">Очистить поля</button>
+                    <button type="submit" class="btn btn-primary">Добавить нового сотрудника</button>
+                    <button type="button" class="btn btn-secondary" id="clear-button">Очистить поля ввода</button>
                 </div>
 
             </form>
