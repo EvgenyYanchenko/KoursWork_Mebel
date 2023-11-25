@@ -1,5 +1,6 @@
 package org.example.repositories;
 
+import org.example.models.Dolgnosti;
 import org.example.models.Employee;
 import org.example.models.Sklady;
 import org.example.models.Stores;
@@ -9,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Date;
 
 @Controller
 public class UpravleniePredpriyatiem {
@@ -60,4 +64,20 @@ public class UpravleniePredpriyatiem {
 //        model.addAttribute("employee", element);
         return "/UpravlenPre/SotrudnikiSettings";
     }
+
+    @PostMapping("/UpravlenPre/Sotrudniki&PositionsADD")
+    public String addToDB(@RequestParam String employeeLastName,
+                          @RequestParam String employeeName,
+                          @RequestParam String employeeSourName,
+                          @RequestParam String employeeAdress,
+                          @RequestParam Date employeeDateOfBirth,
+                          @RequestParam String employeePhone,
+                          @RequestParam Dolgnosti employeePositions,
+                          Model model) {
+
+
+        return "redirect:/UpravlenPre/Sotrudniki&PositionsADD";
+    }
+
+
 }
