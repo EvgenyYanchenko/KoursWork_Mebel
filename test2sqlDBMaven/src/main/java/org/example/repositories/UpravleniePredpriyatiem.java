@@ -57,15 +57,15 @@ public class UpravleniePredpriyatiem {
 
 
     // Sotrudniki settings show page
-    @GetMapping("/UpravlenPre/SotrudnikiSettings")
+    @GetMapping("/UpravlenPre/SotrudnikiSet")
     public String showSotrudnikiSettingsPage(Model model)
     {
 //        Iterable<Employee> element = employeeRepo.findAll();
 //        model.addAttribute("employee", element);
-        return "/UpravlenPre/SotrudnikiSettings";
+        return "/UpravlenPre/SotrudnikiSet";
     }
 
-    @PostMapping("/UpravlenPre/Sotrudniki&PositionsADD")
+    @GetMapping("/UpravlenPre/Sotrudniki&PositionsADD")
     public String addToDB(@RequestParam String employeeLastName,
                           @RequestParam String employeeName,
                           @RequestParam String employeeSourName,
