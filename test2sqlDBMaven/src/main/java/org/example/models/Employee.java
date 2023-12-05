@@ -17,7 +17,7 @@ public class Employee {
     private String adressEmployee;
     private String phoneEmployee;
     private Date dateOfBirth;
-//    private String positon;
+//    private String positonEmployee;
 
 
     public Employee() {

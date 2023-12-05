@@ -99,24 +99,32 @@
 </script>
 
 
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center mt-1">
     <div class="col-10">
       <div style="height: 400px; overflow-y: auto;">
         <table class="table" id="stores">
           <thead>
           <tr>
-            <th>Название торгового объекта</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
             <th>Адрес</th>
-            <th>Торговая площадь</th>
+            <th>Дата рождения</th>
+            <th>Телефон</th>
+<!--            <th>Должность</th>-->
+
 
           </tr>
           </thead>
           <tbody>
-          <tr th:each="store : ${stores}">
-            <td th:text="${store.storeName}"></td>
-            <td th:text="${store.storeAdress}"></td>
-            <td th:text="${store.storeSpace}"></td>
-
+          <tr th:each="element : ${employee}">
+            <td th:text="${element.lastNAme}"></td>
+            <td th:text="${element.firstName}"></td>
+            <td th:text="${element.sourName}"></td>
+            <td th:text="${element.adressEmployee}"></td>
+            <td th:text="${element.dateOfBirth}"></td>
+            <td th:text="${element.phoneEmployee}"></td>
+<!--            <td th:text="${element.positonEmployee}"></td>-->
           </tr>
           </tbody>
         </table>
@@ -129,22 +137,11 @@
   <div class="row justify-content-center mt-4">
     <div class="col-6">
       <div class="container">
-        <h3>Добавление нового объекта</h3>
-        <form action="/UpravlenPre/StoreSettings" method="POST" class="row g-4">
-          <div class="col-md-4">
-            <input type="text"  id="storeName" name="storeName" placeholder="Название объекта" class="form-control" required>
-          </div>
-          <div class="col-md-4">
-            <input type="text" id="storeAdress" name="storeAdress" placeholder="Адрес объекта" class="form-control" required>
-          </div>
-          <div class="col-md-4">
-            <input type="text" id="storeSpace" name="storeSpace" placeholder="Площадь объекта" class="form-control" required>
-          </div>
 
+        <form action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-2">
           <div class="col-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" name="action" value="add">Добавить/Редактировать объект</button>
-            <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить поля ввода</button>
-            <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove">Удалить отмеченный объект</button>
+            <button type="submit" class="btn btn-primary" name="action" value="add">Добавить новую / Редактировать запись</button>
+            <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove" style="margin-left: 10px;">Удалить выбранную запись</button>
           </div>
         </form>
 
