@@ -60,8 +60,8 @@ public class UpravleniePredpriyatiem {
     @GetMapping("/UpravlenPre/SotrudnikiSet")
     public String showSotrudnikiSettingsPage(Model model)
     {
-//        Iterable<Employee> element = employeeRepo.findAll();
-//        model.addAttribute("employee", element);
+        Iterable<Employee> element = employeeRepo.findAll();
+        model.addAttribute("employee", element);
         return "/UpravlenPre/SotrudnikiSet";
     }
 

@@ -122,7 +122,8 @@
             <td th:text="${element.firstName}"></td>
             <td th:text="${element.sourName}"></td>
             <td th:text="${element.adressEmployee}"></td>
-            <td th:text="${element.dateOfBirth}"></td>
+<!--            <td th:text="${element.dateOfBirth}"></td>-->
+            <td th:text="${#dates.format(element.dateOfBirth, 'yyyy-MM-dd')}"></td>
             <td th:text="${element.phoneEmployee}"></td>
 <!--            <td th:text="${element.positonEmployee}"></td>-->
           </tr>
