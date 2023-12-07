@@ -84,31 +84,33 @@
     <!--           Вкладка Добавление сотрудников-->
     <div class="tab-pane fade show active" id="employees">
       <h3>Добавление нового сотрудника или редактирование</h3>
-      <form id="employee-form" class="row g-4">
+      <form id="employee-form" action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-4">
+
         <div class="mb-3 col-md-4">
-          <label for="last-name-input" class="form-label">Фамилия</label>
-          <input type="text" class="form-control" id="last-name-input" placeholder="Введите фамилию">
+          <label for="lastNAme" class="form-label">Фамилия</label>
+          <input type="text" id="lastNAme" name="lastNAme" class="form-control" placeholder="Введите фамилию" required>
+
         </div>
         <div class="mb-3 col-md-4">
-          <label for="first-name-input" class="form-label">Имя</label>
-          <input type="text" class="form-control" id="first-name-input" placeholder="Введите имя">
+          <label for="firstName" class="form-label">Имя</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Введите имя" required>
         </div>
         <div class="mb-3 col-md-4">
-          <label for="middle-name-input" class="form-label">Отчество</label>
-          <input type="text" class="form-control" id="middle-name-input" placeholder="Введите отчество">
+          <label for="sourName"  class="form-label">Отчество</label>
+          <input type="text" id="sourName" name="sourName" class="form-control" placeholder="Введите отчество" required>
         </div>
 
         <div class="mt-1 col-md-4">
-          <label for="address-input" class="form-label">Адрес</label>
-          <input type="text" class="form-control" id="address-input" placeholder="Введите адрес">
+          <label for="adressEmployee" class="form-label">Адрес</label>
+          <input type="text" id="adressEmployee" name="adressEmployee" class="form-control" placeholder="Введите адрес" required>
         </div>
         <div class="mt-1 col-md-2">
-          <label for="birthdate-input" class="form-label">Дата рождения</label>
-          <input type="date" class="form-control" id="birthdate-input">
+          <label for="dateOfBirth"  class="form-label " >Дата рождения</label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth"  class="form-control" required>
         </div>
         <div class="mt-1 col-md-2">
-          <label for="phone-input" class="form-label">Телефон</label>
-          <input type="tel" class="form-control" id="phone-input" placeholder="Введите телефон">
+          <label for="phoneEmployee" class="form-label">Телефон</label>
+          <input type="tel" id="phoneEmployee" name="phoneEmployee" class="form-control" placeholder="Введите телефон" required>
         </div>
 
 
@@ -121,10 +123,13 @@
         </div>
 
         <!--          Buttons-->
-        <div class="mb-3 col-14">
-          <button type="submit" class="btn btn-primary">Добавить нового сотрудника</button>
-          <button type="button" class="btn btn-secondary" id="clear-button">Очистить поля ввода</button>
-        </div>
+
+                <div class="mb-3 col-14">
+                    <button type="submit" class="btn btn-primary" >Добавить нового сотрудника</button>
+<!--                  name="action" value="add"-->
+                    <button type="button" class="btn btn-secondary" id="clear-button">Очистить поля ввода</button>
+                </div>
+
 
       </form>
     </div>

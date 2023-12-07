@@ -11,8 +11,8 @@ import java.util.Date;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEmployee;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idEmployee;
 
     private String lastNAme;
     private String firstName;
@@ -21,14 +21,19 @@ public class Employee {
     private String phoneEmployee;
     private Date dateOfBirth;
 
-    private String positonEmployee;
+    //private Dolgnosti positonEmployee;
 
 
     public Employee() {
     }
 
-    public Employee(int idEmployee, String lastNAme, String firstName, String sourName, String adressEmployee, String phoneEmployee, Date dateOfBirth) {
-        this.idEmployee = idEmployee;
+    public Employee(String lastNAme,
+                    String firstName,
+                    String sourName,
+                    String adressEmployee,
+                    String phoneEmployee,
+                    Date dateOfBirth) {
+
         this.lastNAme = lastNAme;
         this.firstName = firstName;
         this.sourName = sourName;
@@ -37,11 +42,11 @@ public class Employee {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getIdEmployee() {
+    public Long getIdEmployee() {
         return idEmployee;
     }
 
-    public void setIdEmployee(int idEmployee) {
+    public void setIdEmployee(Long idEmployee) {
         this.idEmployee = idEmployee;
     }
 

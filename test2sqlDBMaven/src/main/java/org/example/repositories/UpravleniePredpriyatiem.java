@@ -67,7 +67,7 @@ public class UpravleniePredpriyatiem {
 
     @GetMapping("/UpravlenPre/Sotrudniki&PositionsADD")
     public String showPositionsADD(Model model) {
-
+        System.out.println("redirect to Sotrudniki&PositionsADD");
         return "/UpravlenPre/Sotrudniki&PositionsADD";
     }
 
