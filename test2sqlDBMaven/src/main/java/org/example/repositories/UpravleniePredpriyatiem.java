@@ -66,18 +66,11 @@ public class UpravleniePredpriyatiem {
     }
 
     @GetMapping("/UpravlenPre/Sotrudniki&PositionsADD")
-    public String addToDB(@RequestParam String employeeLastName,
-                          @RequestParam String employeeName,
-                          @RequestParam String employeeSourName,
-                          @RequestParam String employeeAdress,
-                          @RequestParam Date employeeDateOfBirth,
-                          @RequestParam String employeePhone,
-                          @RequestParam Dolgnosti employeePositions,
-                          Model model) {
+    public String showPositionsADD(Model model) {
 
-
-        return "redirect:/UpravlenPre/Sotrudniki&PositionsADD";
+        return "/UpravlenPre/Sotrudniki&PositionsADD";
     }
+
 
 
 }

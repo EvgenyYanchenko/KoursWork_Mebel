@@ -138,12 +138,18 @@
     <div class="col-6">
       <div class="container">
 
-        <form action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-2">
+<!--        <form action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-2">-->
           <div class="col-12 d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" name="action" value="add">Добавить новую / Редактировать запись</button>
+            <button type="submit" class="btn btn-primary" name="action" value="add" onclick="redirect()">Добавить новую / Редактировать запись</button>
+              <script>
+                  function redirect() {
+                      // Выполнить переход на другую страницу
+                      window.location.href = "/UpravlenPre/Sotrudniki&PositionsADD";
+                  }
+              </script>
             <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove" style="margin-left: 10px;">Удалить выбранную запись</button>
           </div>
-        </form>
+<!--        </form>-->
 
       </div>
     </div>

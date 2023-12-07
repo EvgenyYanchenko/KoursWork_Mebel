@@ -1,6 +1,8 @@
 package org.example.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.Date;
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmployee;
 
     private String lastNAme;
@@ -17,7 +20,8 @@ public class Employee {
     private String adressEmployee;
     private String phoneEmployee;
     private Date dateOfBirth;
-//    private String positonEmployee;
+
+    private String positonEmployee;
 
 
     public Employee() {
