@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class prodazhy_tovarov {
+public class Prodazhy_tovarov {
     @Id
     private Long ID_operacii;
     private Date data;
@@ -16,7 +16,7 @@ public class prodazhy_tovarov {
     private Long Kolichestvo;
     private Long Stoimost_edinicy;
 
-    public prodazhy_tovarov(Long ID_operacii, Date data, Long ID_prodavca, String torgov_objekt, Long ID_Tovara, Long kolichestvo, Long stoimost_edinicy) {
+    public Prodazhy_tovarov(Long ID_operacii, Date data, Long ID_prodavca, String torgov_objekt, Long ID_Tovara, Long kolichestvo, Long stoimost_edinicy) {
         this.ID_operacii = ID_operacii;
         this.data = data;
         this.ID_prodavca = ID_prodavca;
@@ -26,7 +26,7 @@ public class prodazhy_tovarov {
         Stoimost_edinicy = stoimost_edinicy;
     }
 
-    public prodazhy_tovarov() {
+    public Prodazhy_tovarov() {
     }
 
     public Long getID_operacii() {
