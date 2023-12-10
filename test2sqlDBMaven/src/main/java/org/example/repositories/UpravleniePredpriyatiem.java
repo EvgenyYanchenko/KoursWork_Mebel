@@ -4,6 +4,7 @@ import org.example.models.Dolgnosti;
 import org.example.models.Employee;
 import org.example.models.Sklady;
 import org.example.models.Stores;
+import org.example.models.Formy_sobstv_postavshikov;
 import org.example.repositories.SkladRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class UpravleniePredpriyatiem {
 
     @Autowired
     private EmployeeRepository employeeRepo;
+
+    @Autowired
+    private FormSobstvRepository formSobstvRepo;
 
     @GetMapping("/UpravlenPre/UpravleniePredpriyatiem")
     public String showUpravleniePage (Model model)
@@ -72,5 +76,28 @@ public class UpravleniePredpriyatiem {
     }
 
 
+        //    Формы собственности Поставщиков
+        @GetMapping("/UpravlenPre/FormSobstvennostiPostavshikov")
+    public String showFormSobstvennostiPostavshikov(Model model) {
+        System.out.println("redirect to FormSobstvennostiPostavshikov");
+        return "/UpravlenPre/FormSobstvennostiPostavshikov";
+    }
+    @PostMapping("/UpravlenPre/FormSobstvennostiPostavshikov")
+    public String addFormSobstv(@RequestParam ("action") String action,
+                          @RequestParam String nazvanie_form_sobstv,
+                          Model model) {
+
+        if("add".equals(action))
+        {
+            Formy_sobstv_postavshikov newForma = new Formy_sobstv_postavshikov(nazvanie_form_sobstv);
+            formSobstvRepo.save(newForma);
+        }
+        else if ("remove".equals(action))
+        {
+            Formy_sobstv_postavshikov formaForRemove = formSobstvRepo.findById() storeRepo.findById(storeName).orElseThrow();
+            storeRepo.delete(storeForDeleting);
+        }
+        return "redirect:/UpravlenPre/FormSobstvennostiPostavshikov";
+    }
 
 }

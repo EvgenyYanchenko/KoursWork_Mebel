@@ -65,10 +65,10 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center mt-1">
-      <h2>Все Продажи</h2>
+      <h2>Все продавцы в организации</h2>
     </div>
   </div>
-  <!--    table of stores-->
+
 
   <script th:inline="javascript">
     document.addEventListener('DOMContentLoaded', function() {
@@ -104,32 +104,19 @@
       <div style="height: 400px; overflow-y: auto;">
         <table class="table" id="stores">
           <thead>
-          <tr>
-            <th>№ чека</th>
-            <th>Дата продажи</th>
-            <th>Продавец</th>
-            <th>Торговый объект</th>
-            <th>Название товара</th>
-            <th>Количество</th>
-            <th>Стоимость ед.</th>
-            <th>Общая сумма</th>
-            <th></th>>
-
-
-          </tr>
+            <tr>
+              <th>Табельный номер продавца</th>
+              <th>ФИО продавца</th>
+              <th>Место работы</th>
+            </tr>
           </thead>
-            <tbody>
-              <tr th:each="element : ${prodazhy_tovarov}">
-                <td th:text="${element.ID_operacii}"></td>
-                <td th:text="${#dates.format(element.data, 'yyyy-MM-dd')}"></td>
-                <td th:text="${element.ID_prodavca}"></td>
-                <td th:text="${element.Torgov_objekt}"></td>
-                <td th:text="${element.ID_Tovara}"></td>
-                <td th:text="${element.Kolichestvo}"></td>
-                <td th:text="${element.Stoimost_edinicy}"></td>
-    <!--            <td th:text="${TOTAL}"></td>-->
-              </tr>
-            </tbody>
+          <tbody>
+            <tr th:each="element : ${prodavcy}">
+              <td th:text="${element.ID_prodavca}"></td>
+              <td th:text="${element.FIO_prodavca}"></td>
+              <td th:text="${element.ID_Torg_objekt}"></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

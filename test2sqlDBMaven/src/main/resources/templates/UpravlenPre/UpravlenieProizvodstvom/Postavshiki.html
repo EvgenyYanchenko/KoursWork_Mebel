@@ -65,7 +65,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 text-center mt-1">
-      <h2>Все Продажи</h2>
+      <h2>Все поставщики</h2>
     </div>
   </div>
   <!--    table of stores-->
@@ -105,54 +105,46 @@
         <table class="table" id="stores">
           <thead>
           <tr>
-            <th>№ чека</th>
-            <th>Дата продажи</th>
-            <th>Продавец</th>
-            <th>Торговый объект</th>
-            <th>Название товара</th>
-            <th>Количество</th>
-            <th>Стоимость ед.</th>
-            <th>Общая сумма</th>
-            <th></th>>
-
-
+            <th>Название</th>
+            <th>Форма собственности</th>
+            <th>Адрес</th>
           </tr>
           </thead>
-            <tbody>
-              <tr th:each="element : ${prodazhy_tovarov}">
-                <td th:text="${element.ID_operacii}"></td>
-                <td th:text="${#dates.format(element.data, 'yyyy-MM-dd')}"></td>
-                <td th:text="${element.ID_prodavca}"></td>
-                <td th:text="${element.Torgov_objekt}"></td>
-                <td th:text="${element.ID_Tovara}"></td>
-                <td th:text="${element.Kolichestvo}"></td>
-                <td th:text="${element.Stoimost_edinicy}"></td>
-    <!--            <td th:text="${TOTAL}"></td>-->
-              </tr>
-            </tbody>
+          <tbody>
+          <tr th:each="element : ${postavshiki}">
+            <td th:text="${element.NamePostavshika}"></td>
+            <td th:text="${element.ID_form_sobstv}"></td>
+            <td th:text="${element.Adres_postavshika}"></td>
+          </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
 
-
-  <!--    addding new sklad area-->
+  <!--  add postavshik-->
   <div class="row justify-content-center mt-4">
     <div class="col-6">
       <div class="container">
+        <h3>Добавление нового поставщика</h3>
+        <form action="/UpravlenPre/UpravlenieProizvodstvom/Postavshiki" method="POST" class="row g-4">
+          <div class="col-md-4">
+            <input type="text"  id="storeName" name="storeName" placeholder="Название поставщика" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <input type="text" id="storeAdress" name="storeAdress" placeholder="Адрес поставщика" class="form-control" required>
+          </div>
 
-        <!--        <form action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-2">-->
-        <div class="col-12 d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary" name="action" value="add" onclick="redirect()">Добавить / Редактировать запись</button>
-          <script>
-                  function redirect() {
-                      // Выполнить переход на другую страницу
-                      window.location.href = "/UpravlenPre/Sotrudniki&PositionsADD";
-                  }
-              </script>
-          <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove" style="margin-left: 10px;">Удалить выбранную запись</button>
-        </div>
-        <!--        </form>-->
+          <div class="col-md-4">
+            <input type="text" id="storeSpace" name="storeSpace" placeholder="Форма собственности" class="form-control" required>
+          </div>
+
+          <div class="col-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" name="action" value="add">Добавить/Редактировать объект</button>
+            <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить поля ввода</button>
+            <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove">Удалить выбранную строку</button>
+          </div>
+        </form>
 
       </div>
     </div>

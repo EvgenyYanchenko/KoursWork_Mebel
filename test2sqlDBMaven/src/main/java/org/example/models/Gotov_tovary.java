@@ -1,12 +1,15 @@
 package org.example.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Gotov_tovary {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID_tovara;
     private String nazvanie_tovara;
     private Long stoimost;

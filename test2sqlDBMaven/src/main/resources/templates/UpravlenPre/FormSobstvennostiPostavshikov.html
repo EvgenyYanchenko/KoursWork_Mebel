@@ -110,9 +110,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="store : ${stores}">
-                        <td th:text="${store.storeName}"></td>
-                        <td th:text="${store.storeAdress}"></td>
+                    <tr th:each="element : ${formy_sobstv_postavshikov}">
+                        <td th:text="${element.id_form_sobstv}"></td>
+                        <td th:text="${element.storeName}"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -131,7 +131,7 @@
                     </div>
                     <div class="col-12 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary" name="action" value="add">Добавить/Редактировать</button>
-                        <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить поля ввода</button>
+                        <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить полe ввода</button>
                         <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove">Удалить отмеченную запись</button>
                     </div>
                 </form>
