@@ -79,11 +79,13 @@ public class UpravleniePredpriyatiem {
         //    Формы собственности Поставщиков
         @GetMapping("/UpravlenPre/FormSobstvennostiPostavshikov")
     public String showFormSobstvennostiPostavshikov(Model model) {
-        System.out.println("redirect to FormSobstvennostiPostavshikov");
+            Iterable<Formy_sobstv_postavshikov> element = formSobstvRepo.findAll();
+            model.addAttribute("formy_sobstv_postavshikov", element);
         return "/UpravlenPre/FormSobstvennostiPostavshikov";
     }
     @PostMapping("/UpravlenPre/FormSobstvennostiPostavshikov")
     public String addFormSobstv(@RequestParam ("action") String action,
+                          @RequestParam Long id_form_sobstv,
                           @RequestParam String nazvanie_form_sobstv,
                           Model model) {
 
@@ -94,8 +96,8 @@ public class UpravleniePredpriyatiem {
         }
         else if ("remove".equals(action))
         {
-            Formy_sobstv_postavshikov formaForRemove = formSobstvRepo.findById() storeRepo.findById(storeName).orElseThrow();
-            storeRepo.delete(storeForDeleting);
+            Formy_sobstv_postavshikov formaForRemove = formSobstvRepo.findById(id_form_sobstv).orElseThrow();
+            formSobstvRepo.delete(formaForRemove);
         }
         return "redirect:/UpravlenPre/FormSobstvennostiPostavshikov";
     }

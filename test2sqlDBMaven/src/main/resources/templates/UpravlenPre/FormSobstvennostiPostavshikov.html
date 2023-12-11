@@ -73,28 +73,24 @@
     <script th:inline="javascript">
     document.addEventListener('DOMContentLoaded', function() {
         var rows = document.querySelectorAll('#stores tbody tr');
-        var nameStoreField = document.querySelector('#storeName');
-        var adressStoreField = document.querySelector('#storeAdress');
-        var spaceStoreField = document.querySelector('#storeSpace');
+        var nameStoreField = document.querySelector('#id_form_sobstv');
+        var adressStoreField = document.querySelector('#nazvanie_form_sobstv');
 
         rows.forEach(function(row) {
             row.addEventListener('click', function() {
-                var storeName = this.querySelector('td:nth-child(1)').textContent;
-                var storeAdress = this.querySelector('td:nth-child(2)').textContent;
-                var storeSpace = this.querySelector('td:nth-child(3)').textContent;
+                var id_form_sobstv = this.querySelector('td:nth-child(1)').textContent;
+                var nazvanie_form_sobstv = this.querySelector('td:nth-child(2)').textContent;
 
-                nameStoreField.value = storeName;
-                adressStoreField.value = storeAdress;
-                spaceStoreField.value = storeSpace;
+                nameStoreField.value = id_form_sobstv;
+                adressStoreField.value = nazvanie_form_sobstv;
+
             });
         });
     });
 </script>
     <script>
     function clearFields() {
-        document.getElementById('storeName').value = '';
-        document.getElementById('storeAdress').value = '';
-        document.getElementById('storeSpace').value = '';
+        document.getElementById('nazvanie_form_sobstv').value = '';
     }
 </script>
 
@@ -112,7 +108,7 @@
                     <tbody>
                     <tr th:each="element : ${formy_sobstv_postavshikov}">
                         <td th:text="${element.id_form_sobstv}"></td>
-                        <td th:text="${element.storeName}"></td>
+                        <td th:text="${element.nazvanie_form_sobstv}"></td>
                     </tr>
                     </tbody>
                 </table>
@@ -127,8 +123,12 @@
                 <h3>Добавление новой формы собственности</h3>
                 <form action="/UpravlenPre/FormSobstvennostiPostavshikov" method="POST" class="row g-4">
                     <div class="col-md-4">
-                        <input type="text"  id="storeName" name="storeName" placeholder="Название формы" class="form-control" required>
+                        <input type="text" id="id_form_sobstv" name="id_form_sobstv" placeholder="ID" class="form-control" readonly required>
                     </div>
+                    <div class="col-md-4">
+                        <input type="text"  id="nazvanie_form_sobstv" name="nazvanie_form_sobstv" placeholder="Название формы" class="form-control" required>
+                    </div>
+
                     <div class="col-12 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary" name="action" value="add">Добавить/Редактировать</button>
                         <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить полe ввода</button>

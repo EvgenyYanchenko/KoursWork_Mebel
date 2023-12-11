@@ -11,14 +11,17 @@ public class Formy_sobstv_postavshikov {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_form_sobstv;
+
     private String nazvanie_form_sobstv;
+
+    public Formy_sobstv_postavshikov() {
+    }
 
     public Formy_sobstv_postavshikov(String nazvanie_form_sobstv) {
            this.nazvanie_form_sobstv = nazvanie_form_sobstv;
     }
 
-    public Formy_sobstv_postavshikov() {
-    }
+
 
     public Long getId_form_sobstv() {
         return id_form_sobstv;
