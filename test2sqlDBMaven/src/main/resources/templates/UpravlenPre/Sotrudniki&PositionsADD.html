@@ -118,7 +118,7 @@
           <label for="position-select" class="form-label">Должность</label>
           <select class="form-select" id="position-select">
             <option value="">Выберите должность</option>
-            <option th:each="position : ${positions}" th:value="${position}" th:text="${position}"></option>
+            <option th:each="position : ${dolgnosti}" th:value="${position.nazvanie_Dolgnosti}" th:text="${position.nazvanie_Dolgnosti}"></option>
           </select>
         </div>
 

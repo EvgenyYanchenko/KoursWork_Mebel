@@ -30,6 +30,9 @@ public class UpravleniePredpriyatiem {
     @Autowired
     private FormSobstvRepository formSobstvRepo;
 
+    @Autowired
+    private DolgnostiRepository dolgnRepo;
+
     @GetMapping("/UpravlenPre/UpravleniePredpriyatiem")
     public String showUpravleniePage (Model model)
     {
@@ -72,6 +75,11 @@ public class UpravleniePredpriyatiem {
     @GetMapping("/UpravlenPre/Sotrudniki&PositionsADD")
     public String showPositionsADD(Model model) {
         System.out.println("redirect to Sotrudniki&PositionsADD");
+
+        //add dolgnosti to select elmnt
+        Iterable<Dolgnosti> dolgnosti = dolgnRepo.findAll();
+        model.addAttribute("dolgnosti", dolgnosti);
+
         return "/UpravlenPre/Sotrudniki&PositionsADD";
     }
 
