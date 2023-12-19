@@ -122,7 +122,6 @@
             <td th:text="${element.firstName}"></td>
             <td th:text="${element.sourName}"></td>
             <td th:text="${element.adressEmployee}"></td>
-<!--            <td th:text="${element.dateOfBirth}"></td>-->
             <td th:text="${#dates.format(element.dateOfBirth, 'yyyy-MM-dd')}"></td>
             <td th:text="${element.phoneEmployee}"></td>
 <!--            <td th:text="${element.positonEmployee}"></td>-->
@@ -134,7 +133,7 @@
   </div>
 
 
-  <!--    addding new sklad area-->
+  <!--    redirect to Editing page /Sotrudniki&PositionsADD area-->
   <div class="row justify-content-center mt-4">
     <div class="col-6">
       <div class="container">
@@ -148,7 +147,6 @@
                       window.location.href = "/UpravlenPre/Sotrudniki&PositionsADD";
                   }
               </script>
-            <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove" style="margin-left: 10px;">Удалить выбранную запись</button>
           </div>
 <!--        </form>-->
 

@@ -128,6 +128,7 @@
                     <button type="submit" class="btn btn-primary" >Добавить нового сотрудника</button>
 <!--                  name="action" value="add"-->
                     <button type="button" class="btn btn-secondary" id="clear-button">Очистить поля ввода</button>
+                  <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove" style="margin-left: 10px;">Удалить выбранную запись</button>
                 </div>
 
 
@@ -138,8 +139,21 @@
     <!--    Вкладка должности-->
     <div class="tab-pane fade" id="positions">
 
+
       <script th:inline="javascript">
-    document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
+    $(".data-form").submit(function(event) {
+        var formId = $(this).attr("id"); // Получаем идентификатор формы
+
+<!--        // Если форма 1-->
+<!--        if (formId === "employee-form") {-->
+<!--            // Обработка для формы 1-->
+<!--            // ...-->
+<!--        }-->
+
+        // Если форма 2
+        if (formId === "dolgnosti-form") {
+            document.addEventListener('DOMContentLoaded', function() {
         var rows = document.querySelectorAll('#positionsTable tbody tr');
         var namePositionField = document.querySelector('#namePosition');
         var salaryPositionField = document.querySelector('#salaryPosition');
@@ -157,6 +171,12 @@
             });
         });
     });
+        }
+    });
+});
+</script>
+      <script th:inline="javascript">
+
 
                 </script>
 
@@ -209,8 +229,9 @@
           <div class="col-6">
             <div class="container">
               <h3>Добавление новой должности</h3>
-              <form action="/UpravlenPre/SotrudnikiSettings" method="POST"
-                    class="row g-4">
+              <form id="dolgnosti-form" action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-4">
+<!--          <form id="employee-form" action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-4">-->
+<!--          <form id="form1" class="data-form" action="/processForm1" method="POST">-->
                 <div class="col-md-4">
                   <input type="text" id="namePosition" name="namePosition" placeholder="Название должности"
                          class="form-control" required>
