@@ -88,29 +88,30 @@
 
         <div class="mb-3 col-md-4">
           <label for="lastNAme" class="form-label">Фамилия</label>
-          <input type="text" id="lastNAme" name="lastNAme" class="form-control" placeholder="Введите фамилию" required>
+          <input type="text" id="lastNAme" name="lastNAme" class="form-control" placeholder="Введите фамилию" th:value="${sendE.lastNAme}" required>
+
 
         </div>
         <div class="mb-3 col-md-4">
           <label for="firstName" class="form-label">Имя</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Введите имя" required>
+          <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Введите имя" th:value="${sendE.firstName}" required>
         </div>
         <div class="mb-3 col-md-4">
           <label for="sourName"  class="form-label">Отчество</label>
-          <input type="text" id="sourName" name="sourName" class="form-control" placeholder="Введите отчество" required>
+          <input type="text" id="sourName" name="sourName" class="form-control" placeholder="Введите отчество" th:value="${sendE.sourName}" required>
         </div>
 
         <div class="mt-1 col-md-4">
           <label for="adressEmployee" class="form-label">Адрес</label>
-          <input type="text" id="adressEmployee" name="adressEmployee" class="form-control" placeholder="Введите адрес" required>
+          <input type="text" id="adressEmployee" name="adressEmployee" class="form-control" placeholder="Введите адрес" th:value="${sendE.adressEmployee}" required>
         </div>
         <div class="mt-1 col-md-2">
           <label for="dateOfBirth"  class="form-label " >Дата рождения</label>
-          <input type="date" id="dateOfBirth" name="dateOfBirth"  class="form-control" required>
+          <input type="date" id="dateOfBirth" name="dateOfBirth"  class="form-control" th:value="${sendE.dateOfBirth}" required>
         </div>
         <div class="mt-1 col-md-2">
           <label for="phoneEmployee" class="form-label">Телефон</label>
-          <input type="tel" id="phoneEmployee" name="phoneEmployee" class="form-control" placeholder="Введите телефон" required>
+          <input type="tel" id="phoneEmployee" name="phoneEmployee" class="form-control" placeholder="Введите телефон" th:value="${sendE.phoneEmployee}" required>
         </div>
 
 
@@ -118,7 +119,9 @@
           <label for="position-select" class="form-label">Должность</label>
           <select class="form-select" id="position-select">
             <option value="">Выберите должность</option>
-            <option th:each="position : ${dolgnosti}" th:value="${position.nazvanie_Dolgnosti}" th:text="${position.nazvanie_Dolgnosti}"></option>
+            <option th:each="position : ${dolgnosti}" th:value="${position.nazvanie_Dolgnosti}" th:text="${position.nazvanie_Dolgnosti}" ></option>
+<!--            th:selected="${sendE.positonEmployee}" выбор должности работника-->
+
           </select>
         </div>
 

@@ -70,26 +70,7 @@
   </div>
   <!--    table of stores-->
 
-  <script th:inline="javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-        var rows = document.querySelectorAll('#stores tbody tr');
-        var nameStoreField = document.querySelector('#storeName');
-        var adressStoreField = document.querySelector('#storeAdress');
-        var spaceStoreField = document.querySelector('#storeSpace');
 
-        rows.forEach(function(row) {
-            row.addEventListener('click', function() {
-                var storeName = this.querySelector('td:nth-child(1)').textContent;
-                var storeAdress = this.querySelector('td:nth-child(2)').textContent;
-                var storeSpace = this.querySelector('td:nth-child(3)').textContent;
-
-                nameStoreField.value = storeName;
-                adressStoreField.value = storeAdress;
-                spaceStoreField.value = storeSpace;
-            });
-        });
-    });
-</script>
   <script>
     function clearFields() {
         document.getElementById('storeName').value = '';
@@ -112,12 +93,13 @@
             <th>Дата рождения</th>
             <th>Телефон</th>
 <!--            <th>Должность</th>-->
+            <th>ID</th>
 
 
           </tr>
           </thead>
           <tbody>
-          <tr th:each="element : ${employee}">
+          <tr th:each="element : ${employee}" onclick="fillInputs(this)">
             <td th:text="${element.lastNAme}"></td>
             <td th:text="${element.firstName}"></td>
             <td th:text="${element.sourName}"></td>
@@ -125,8 +107,18 @@
             <td th:text="${#dates.format(element.dateOfBirth, 'yyyy-MM-dd')}"></td>
             <td th:text="${element.phoneEmployee}"></td>
 <!--            <td th:text="${element.positonEmployee}"></td>-->
+            <td th:text="${element.idEmployee}"></td>
           </tr>
           </tbody>
+          <script>
+  function fillInputs(row) {
+   var inputElement = document.getElementById("id");
+   var cells = row.getElementsByTagName("td");
+    var value = cells[6].innerText;
+
+    inputElement.value = value;
+  }
+</script>
         </table>
       </div>
     </div>
@@ -138,17 +130,18 @@
     <div class="col-6">
       <div class="container">
 
-<!--        <form action="/UpravlenPre/Sotrudniki&PositionsADD" method="POST" class="row g-2">-->
+        <form action="/UpravlenPre/SotrudnikiSet" method="POST" class="row g-2">
           <div class="col-12 d-flex justify-content-center">
+            <input type="text" id="id" name="id">
             <button type="submit" class="btn btn-primary" name="action" value="add" onclick="redirect()">Добавить новую / Редактировать запись</button>
-              <script>
-                  function redirect() {
-                      // Выполнить переход на другую страницу
-                      window.location.href = "/UpravlenPre/Sotrudniki&PositionsADD";
-                  }
-              </script>
+<!--              <script>-->
+<!--                  function redirect() {-->
+<!--                      // Выполнить переход на страницу-->
+<!--                      window.location.href = "/UpravlenPre/Sotrudniki&PositionsADD";-->
+<!--                  }-->
+<!--              </script>-->
           </div>
-<!--        </form>-->
+        </form>
 
       </div>
     </div>

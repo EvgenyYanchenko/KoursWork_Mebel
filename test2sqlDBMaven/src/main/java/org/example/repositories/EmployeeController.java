@@ -16,6 +16,7 @@ import java.util.Date;
 
 @Controller
 public class EmployeeController {
+    public Long EmplID;
     @Autowired
     private EmployeeRepository employeeRepo;
 
@@ -30,10 +31,25 @@ public class EmployeeController {
         return "/UpravlenPre/SotrudnikiSet";
     }
 
+    @PostMapping("/UpravlenPre/SotrudnikiSet")
+    public String findEmplforSend(@RequestParam Long id, Model model) {
+
+       EmplID= id;
+////        if("add".equals(action))
+////        {
+//        Employee newEmployee = new Employee(lastNAme, firstName, sourName, adressEmployee, phoneEmployee, dateOfBirth);
+//        employeeRepo.save(newEmployee);
+////        }
+//        System.out.println("Into Create Empl!!!!!!");
+        return "redirect:/UpravlenPre/Sotrudniki&PositionsADD";
+    }
+
 
     @GetMapping("/UpravlenPre/Sotrudniki&PositionsADD")
     public String showPositionsADD(Model model) {
         System.out.println("redirect to Sotrudniki&PositionsADD");
+        Employee sendedEmpl = employeeRepo.findById(EmplID).orElseThrow();
+        model.addAttribute("sendE",sendedEmpl);
 
         //add dolgnosti to select elmnt
         Iterable<Dolgnosti> dolgnosti = dolgnRepo.findAll();
@@ -49,6 +65,7 @@ public class EmployeeController {
                           @RequestParam String adressEmployee,
                           @RequestParam String phoneEmployee,
                           @RequestParam("dateOfBirth") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfBirth,
+//                          @RequestParam Dolgnosti positonEmployee,
                           Model model) {
 
 //        if("add".equals(action))
