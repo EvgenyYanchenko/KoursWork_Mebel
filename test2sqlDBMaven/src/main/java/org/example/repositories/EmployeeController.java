@@ -65,12 +65,12 @@ public class EmployeeController {
                           @RequestParam String adressEmployee,
                           @RequestParam String phoneEmployee,
                           @RequestParam("dateOfBirth") @DateTimeFormat(pattern = "yyyy-MM-dd") Date dateOfBirth,
-//                          @RequestParam Dolgnosti positonEmployee,
+                          @RequestParam Dolgnosti positonEmployee,
                           Model model) {
 
 //        if("add".equals(action))
 //        {
-        Employee newEmployee = new Employee(lastNAme, firstName, sourName, adressEmployee, phoneEmployee, dateOfBirth);
+        Employee newEmployee = new Employee(lastNAme, firstName, sourName, adressEmployee, phoneEmployee, dateOfBirth, positonEmployee);
         employeeRepo.save(newEmployee);
 //        }
         System.out.println("Into Create Empl!!!!!!");

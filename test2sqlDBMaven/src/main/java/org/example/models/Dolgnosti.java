@@ -2,6 +2,7 @@ package org.example.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Dolgnosti {
@@ -19,6 +20,10 @@ public class Dolgnosti {
 
     private String kategoriya;
     private int oklad;
+
+    @OneToMany(mappedBy = "")
+
+
 
     public String getNazvanie_Dolgnosti() {
         return nazvanie_Dolgnosti;

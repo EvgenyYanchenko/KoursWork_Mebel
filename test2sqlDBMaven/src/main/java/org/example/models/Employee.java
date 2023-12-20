@@ -1,9 +1,6 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -21,7 +18,9 @@ public class Employee {
     private String phoneEmployee;
     private Date dateOfBirth;
 
-    //private Dolgnosti positonEmployee;
+    @ManyToOne
+    @JoinColumn(name = "nazvanie_Dolgnosti")
+    private Dolgnosti positonEmployee;
 
 
     public Employee() {
@@ -32,7 +31,8 @@ public class Employee {
                     String sourName,
                     String adressEmployee,
                     String phoneEmployee,
-                    Date dateOfBirth) {
+                    Date dateOfBirth,
+                    Dolgnosti positonEmployee) {
 
         this.lastNAme = lastNAme;
         this.firstName = firstName;
@@ -40,6 +40,7 @@ public class Employee {
         this.adressEmployee = adressEmployee;
         this.phoneEmployee = phoneEmployee;
         this.dateOfBirth = dateOfBirth;
+        this.positonEmployee = positonEmployee;
     }
 
     public Long getIdEmployee() {
@@ -96,5 +97,13 @@ public class Employee {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Dolgnosti getPositonEmployee() {
+        return positonEmployee;
+    }
+
+    public void setPositonEmployee(Dolgnosti positonEmployee) {
+        this.positonEmployee = positonEmployee;
     }
 }
