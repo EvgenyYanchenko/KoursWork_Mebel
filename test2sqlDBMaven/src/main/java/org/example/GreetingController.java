@@ -17,6 +17,26 @@ public class GreetingController {
     @Autowired
     private DolgnostiRepository dolgnostiRepository;
 
+    @PostMapping("/new_mainMenu")
+    public String showMainMenu(Model model) {
+
+        return "/new_mainMenu";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
@@ -47,7 +67,7 @@ public class GreetingController {
     @GetMapping
     public String main(Map<String, Object> model) {
         model.put("some", "Lets go codding!!!");
-        return "main";
+        return "new_main";
     }
 
 

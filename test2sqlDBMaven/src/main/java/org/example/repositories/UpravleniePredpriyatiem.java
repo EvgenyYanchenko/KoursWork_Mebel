@@ -33,6 +33,12 @@ public class UpravleniePredpriyatiem {
     @Autowired
     private DolgnostiRepository dolgnRepo;
 
+    @GetMapping("/Analitycs")
+    public String analyticsPage(Model model) {
+        return "/Analitycs";
+    }
+
+
     @GetMapping("/UpravlenPre/UpravleniePredpriyatiem")
     public String showUpravleniePage(Model model) {
         return "/UpravlenPre/UpravleniePredpriyatiem";

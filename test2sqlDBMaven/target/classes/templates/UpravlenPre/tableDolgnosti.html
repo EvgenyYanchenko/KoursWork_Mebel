@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Thymeleaf</title>
+</head>
+<body>
+<h1>Все должности в компании</h1>
+<tbody>
+<tr th:each="element : ${dolgnosti}">
+    <td th:text="${element.nazvanie_Dolgnosti}"><br></td>
+    <td th:text="${element.oklad}"><br></td>
+    <td th:text="${element.kategoriya}"><br></td>
+</tr>
+</tbody>
+
+<div class="container mt-5 mb-5">
+    <h1>Добавление новой должности</h1>>
+    <form action="/tableDolgnosti" method="post">
+        <input type="text" name="nazvanie_Dolgnosti" placeholder="Название новой должности" class="form-control"><br>
+        <input type="text" name="kategoriya" placeholder="Категория новой должности" class="form-control"><br>
+        <input type="text" name="oklad" placeholder="Оклад новой должности" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить новую должность</button>
+        >
+    </form>
+
+</div>
+
+
+
+<h1 th:text="'Hello Thymeleaf!'">Hello sample</h1>
+</body>
+</html>

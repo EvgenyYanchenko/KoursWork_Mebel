@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        #select {
+            justify-content: center;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: #f2f2f2;
+            color: #333;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            width: 300px;
+<!--            text-align: center;-->
+        }
+
+        #sklady {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 95%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            max-height: 300px; /* Установите желаемую высоту таблицы */
+            overflow-y: auto; /* Добавление вертикальной прокрутки */
+        }
+
+        #sklady td, #sklady th {
+            border: 1px solid #ddd;
+            padding: 8px;
+
+
+        }
+
+        #sklady tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #sklady tr:hover {
+            background-color: #ddd;
+        }
+
+        #sklady th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+
+
+        position: sticky;
+        top: 0;
+        z-index: 1;
+
+        }
+
+    </style>
+    <header th:insert="blocks/header :: header"></header>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mt-1">
+            <h2>Все склады организации</h2>
+        </div>
+    </div>
+<!--    table of sklady-->
+
+    <script th:inline="javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var rows = document.querySelectorAll('#sklady tbody tr');
+        var nameSkladaField = document.querySelector('#nameSklada');
+        var adressSkladaField = document.querySelector('#adressSklada');
+        var phoneSkladaField = document.querySelector('#phoneSklada');
+
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var nameSklada = this.querySelector('td:nth-child(1)').textContent;
+                var adressSklada = this.querySelector('td:nth-child(2)').textContent;
+                var phoneSklada = this.querySelector('td:nth-child(3)').textContent;
+
+                nameSkladaField.value = nameSklada;
+                adressSkladaField.value = adressSklada;
+                phoneSkladaField.value = phoneSklada;
+            });
+        });
+    });
+</script>
+    <script>
+    function clearFields() {
+        document.getElementById('nameSklada').value = '';
+        document.getElementById('adressSklada').value = '';
+        document.getElementById('phoneSklada').value = '';
+    }
+</script>
+
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-10">
+            <div style="height: 400px; overflow-y: auto;">
+                <table class="table" id="sklady">
+                    <thead>
+                    <tr>
+                        <th>Название склада</th>
+                        <th>Адрес склада</th>
+                        <th>Телефон</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="sklad : ${sklady}">
+                        <td th:text="${sklad.nameSklada}"></td>
+                        <td th:text="${sklad.adressSklada}"></td>
+                        <td th:text="${sklad.phoneSklada}"></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<!--    addding new sklad area-->
+
+
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-6">
+            <div class="container">
+                <h3>Добавление нового склада</h3>
+                <form action="/UpravlenPre/UpravlenieProizvodstvom/SettSklady" method="POST" class="row g-4">
+                    <div class="col-md-4">
+                        <input type="text"  id="nameSklada" name="nameSklada" placeholder="Название склада" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="adressSklada" name="adressSklada" placeholder="Адрес склада" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="phoneSklada" name="phoneSklada" placeholder="Телефон" class="form-control" required>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" name="action" value="add">Добавить/Редактировать склад</button>
+                        <button type="button" class="btn btn-primary mx-2" id="clearTextButton" onclick="clearFields()">Очистить поля ввода</button>
+                        <button type="submit" class="btn btn-danger" id="deleteMarkedButton" name="action" value="remove">Удалить отмеченный склад</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</html>
